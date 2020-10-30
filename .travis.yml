@@ -8,7 +8,7 @@ matrix:
     before_install:
 #      - brew install python
       - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-      - python get-pip.py
+      - python3 get-pip.py
   - os: windows
     language: minimal
     before_install:
@@ -24,10 +24,9 @@ install:
 
 deploy:
   provider: releases
-  api-key:
-    secure: Nb4qJlmLEE2/ETHEYe8V8eGI08d4GuE5kdQef5ZnB4PrstppLlAjShv5E4DNTsyalMOMDjpw9v+9aQNzxGiGv+lCVVL5oFvqvDpcYusRuF9Qua7oJtFh+5FvjgC1DDjauk5Z7WQWMvzWwfNmqbY/lxPbA4zVy4kdYkGV/8WnzA9AL5fU0ZU8gDsFjcr9Pz81XDsDXtPH/+iMuclMsEl8V/ZuswWlZaFn1Jnb1tcGC5WUCsuNQo/+gGfSK6Qcf9AKsIrOjdzi55s4jqH1N7P/kKi4a2tWUTwmSLrOxdUmSYjXVOxMu0cAEnHSeYREv/5o6J0MbfQrDoxh2y5roPZzqE+FAuFLl+b/+bYlW0mrfYfSuP/VX9LYh5JSvrhN7rZuUfMqS1iM7c9Dx8sZadMnvYEAAJhH8IV/9SkuRa/8QoIpXf7YB9v1jERxs4gk5CPT5Aml6nY/CvMWiEQ/wJhC7iZd/QRHshgfNLfAGlbbNU2KP6ZsVAGD601fyST/8neoQqLqS9mteOr1QME3c5EFw+XaauIQNYZSl+wJr8Y1YMcKY+fbJqqR0TXkbsoxFgV9PRf/4ZCjIJYtmelQVlM7j20XavOHM/Ko6/y7a3pohFz+ql3YR9jGF5XW2foXb4+e6DwTGL91/f75hYcsvXxoKbeaBjWpaSK8532UTeVkhPM=
-  file_glob: true
-  file: open-stage-control/src/python/dist/*
-  skip_cleanup: true
+  api_key:
+    secure: Mc7XtnLWXDlfLnh6LT55Nm9LIwlDTTwFpURrCIoq6xI/OU5OLV2nswd/PJCnyjgMUSacrGU71Iv6+FWLMOULO/Fil4LXGAcg+NzDN5HicKZiVnOCKFJxiYoRf8otURFKbmy8UxBeICA7qvoSY0IxnR820PK1t2ToBtcbuwaBlQXSFwd96RHAVj3ePZ08kjkbNwI2JH08ZJbLZJnlUcubPd5rwcUdoIOdtZ+eRn0CWoA8/9CQtyx7G06qZwBcdrlmeYG2mMdMleWkeLAfrD/UqisSqdGjbdzz+W7D/ymURpR47Z1RTBAL9J4CZ6Qig2KSFZUU75QYbuGfpyRiYz26ygUmzA/GwdbFV9K+hkBRn/yukrzDlSXySsmnHrjqZzI9DdkIMEVgqgDrjw0D02+CcXKLcmEpqMTIdBRoQSGgtZql5qEGw5gacpXfH8BApV2jaTx3e6R//SyVX5RhdIZML/jHLsD6ilP1aCDAhVKEQwPohGjN2URI4I7hkEV65GGSwG7v0sNmdEeJ0vE0d6nlxFRLvTW6Q8Y6+WnNCO4Ldbhn7Yd+8fHUukMnCEV3KR2DjY7bPT6nvhBFIaZVHZ1kiSFzBHZDFgDQr+9LsQtZU+hF66KUoKNDdiHud++Pmn/l3jvNm3N3LL223Ow5rJ/yJumIjwcneNZ5qK3ieXrnSp8=
+  file: dist/*
   on:
     tags: true
+  skip_cleanup: true
