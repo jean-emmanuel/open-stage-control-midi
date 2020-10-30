@@ -6,18 +6,24 @@ matrix:
     before_install:
       - sudo apt-get update
       - sudo apt-get install -y python3-dev libjack-jackd2-dev libasound2-dev
+    before_deploy:
+      - mv dist/midi dist/osc-midi-linux
   - os: osx
     language: minimal
     before_install:
 #      - brew install python # already installed
       - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       - python3 get-pip.py
+    before_deploy:
+      - mv dist/midi dist/osc-midi-osx
   - os: windows
     language: minimal
     before_install:
       - choco install python --version=3.7
       - python -m pip install --upgrade pip
     env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+    before_deploy:
+      - mv dist/midi.exe dist/osc-midi-win32.exe
 
 install:
   - git clone https://github.com/jean-emmanuel/open-stage-control --depth 1
@@ -29,7 +35,7 @@ deploy:
   provider: releases
   api_key:
     secure: Mc7XtnLWXDlfLnh6LT55Nm9LIwlDTTwFpURrCIoq6xI/OU5OLV2nswd/PJCnyjgMUSacrGU71Iv6+FWLMOULO/Fil4LXGAcg+NzDN5HicKZiVnOCKFJxiYoRf8otURFKbmy8UxBeICA7qvoSY0IxnR820PK1t2ToBtcbuwaBlQXSFwd96RHAVj3ePZ08kjkbNwI2JH08ZJbLZJnlUcubPd5rwcUdoIOdtZ+eRn0CWoA8/9CQtyx7G06qZwBcdrlmeYG2mMdMleWkeLAfrD/UqisSqdGjbdzz+W7D/ymURpR47Z1RTBAL9J4CZ6Qig2KSFZUU75QYbuGfpyRiYz26ygUmzA/GwdbFV9K+hkBRn/yukrzDlSXySsmnHrjqZzI9DdkIMEVgqgDrjw0D02+CcXKLcmEpqMTIdBRoQSGgtZql5qEGw5gacpXfH8BApV2jaTx3e6R//SyVX5RhdIZML/jHLsD6ilP1aCDAhVKEQwPohGjN2URI4I7hkEV65GGSwG7v0sNmdEeJ0vE0d6nlxFRLvTW6Q8Y6+WnNCO4Ldbhn7Yd+8fHUukMnCEV3KR2DjY7bPT6nvhBFIaZVHZ1kiSFzBHZDFgDQr+9LsQtZU+hF66KUoKNDdiHud++Pmn/l3jvNm3N3LL223Ow5rJ/yJumIjwcneNZ5qK3ieXrnSp8=
-  file: dist/*
+  file: open-stage-control/src/python/dist/*
   on:
     tags: true
   skip_cleanup: true
