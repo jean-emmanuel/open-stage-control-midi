@@ -6,7 +6,7 @@ matrix:
   - os: osx
     language: minimal
     before_install:
-      - brew install python
+#      - brew install python
       - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       - python get-pip.py
   - os: windows
@@ -14,7 +14,7 @@ matrix:
     before_install:
       - choco install python --version=3.7
       - python -m pip install --upgrade pip
-      - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
+    env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 
 install:
   - git clone https://github.com/jean-emmanuel/open-stage-control --depth 1
