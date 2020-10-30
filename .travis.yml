@@ -1,10 +1,22 @@
-os:
-  - linux
-  - osx
-  - windows
+matrix:
+ include:
+  - os: linux
+    language: python
+    python: 3.7
+  - os: osx
+    language: python
+    python: 3.7.9
+  - os: windows
+    language: sh
+
 
 language: python
 python: "3.8"
+
+before_install:
+  - if [ "$TRAVIS_OS_NAME" = "windws" ]; choco install python --version=3.7; fi
+  - if [ "$TRAVIS_OS_NAME" = "windws" ]; python -m pip install --upgrade pip; fi
+  - if [ "$TRAVIS_OS_NAME" = "windws" ]; export PATH="/c/Python37:/c/Python37/Scripts:$PATH"; fi
 
 install:
   - pip install -r requirements.txt
