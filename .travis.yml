@@ -1,22 +1,20 @@
 matrix:
- include:
+  include:
   - os: linux
     language: python
     python: 3.7
   - os: osx
-    language: python
-    python: 3.7.9
+    language: minimal
+    before_install:
+      - brew install python
+      - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+      - python get-pip.py
   - os: windows
-    language: sh
-
-
-language: python
-python: "3.8"
-
-before_install:
-  - if [ "$TRAVIS_OS_NAME" = "windws" ]; choco install python --version=3.7; fi
-  - if [ "$TRAVIS_OS_NAME" = "windws" ]; python -m pip install --upgrade pip; fi
-  - if [ "$TRAVIS_OS_NAME" = "windws" ]; export PATH="/c/Python37:/c/Python37/Scripts:$PATH"; fi
+    language: minimal
+    before_install:
+      - choco install python --version=3.7
+      - python -m pip install --upgrade pip
+      - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
 
 install:
   - pip install -r requirements.txt
