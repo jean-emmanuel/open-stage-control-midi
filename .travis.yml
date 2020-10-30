@@ -3,10 +3,13 @@ matrix:
   - os: linux
     language: python
     python: 3.7
+    before_install:
+      - sudo apt-get update
+      - sudo apt-get install -y python3-dev libjack-jackd2-dev libasound2-dev
   - os: osx
     language: minimal
     before_install:
-#      - brew install python
+#      - brew install python # already installed
       - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       - python3 get-pip.py
   - os: windows
