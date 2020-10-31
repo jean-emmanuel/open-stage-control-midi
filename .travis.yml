@@ -32,6 +32,9 @@ install:
   - pyinstaller midi.py --onefile
   - ls dist/
 
+script:
+  - echo "foo"
+
 deploy:
   provider: releases
   api_key:
