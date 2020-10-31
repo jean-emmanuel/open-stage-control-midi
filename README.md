@@ -4,12 +4,13 @@
 
 The requirements for enabling MIDI support in Open Stage Control can hard to install, especially under Windows. This is an attempt to provide ready-to-use binaries that Open Stage Control can use without needing any thing else installed.
 
-Binaries are built using [pyinstaller](https://www.pyinstaller.org/), cross-compiling is done with [docker-pyinstaller](https://github.com/cdrx/docker-pyinstaller)
+Binaries are built using [pyinstaller](https://www.pyinstaller.org/), cross-compiling is done with Travis-CI.
 
 ## Supported platforms
 
-- Linux: 64bit, 32bit
-- Windows: 64bit, 32bit
+- Linux 64bit
+- Windows 64bit
+- OSX 64bit
 
 ## Usage
 
