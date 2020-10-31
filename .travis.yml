@@ -27,16 +27,6 @@ matrix:
     before_deploy:
       - mv dist/midi dist/osc-midi-osx
   - os: windows
-    arch: x64
-    language: minimal
-    before_install:
-      - choco install python --version=3.7
-      - python -m pip install --upgrade pip
-    env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-    before_deploy:
-      - mv dist/midi.exe dist/osc-midi-win32-$TRAVIS_CPU_ARCH.exe
-  - os: windows
-    arch: x86
     language: minimal
     before_install:
       - choco install python --version=3.7
