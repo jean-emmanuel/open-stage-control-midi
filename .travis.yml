@@ -1,13 +1,16 @@
 matrix:
   include:
   - os: linux
+    arch:
+      - x64
+      - x86
     language: python
     python: 3.7
     before_install:
       - sudo apt-get update
       - sudo apt-get install -y python3-dev libjack-jackd2-dev libasound2-dev
     before_deploy:
-      - mv dist/midi dist/osc-midi-linux
+      - mv dist/midi dist/osc-midi-linux-$TRAVIS_CPU_ARCH
   - os: osx
     language: minimal
     before_install:
