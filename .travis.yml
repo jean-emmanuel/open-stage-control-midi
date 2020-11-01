@@ -8,16 +8,7 @@ matrix:
       - sudo apt-get update
       - sudo apt-get install -y python3-dev libjack-jackd2-dev libasound2-dev
     before_deploy:
-      - mv dist/midi dist/osc-midi-linux-$TRAVIS_CPU_ARCH
-  - os: linux
-    arch: x86
-    language: python
-    python: 3.7
-    before_install:
-      - sudo apt-get update
-      - sudo apt-get install -y python3-dev libjack-jackd2-dev libasound2-dev
-    before_deploy:
-      - mv dist/midi dist/osc-midi-linux-$TRAVIS_CPU_ARCH
+      - mv dist/midi dist/osc-midi-linux
   - os: osx
     language: minimal
     before_install:
@@ -33,7 +24,7 @@ matrix:
       - python -m pip install --upgrade pip
     env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
     before_deploy:
-      - mv dist/midi.exe dist/osc-midi-win32-$TRAVIS_CPU_ARCH.exe
+      - mv dist/midi.exe dist/osc-midi-windows.exe
 
 install:
   - git clone https://github.com/jean-emmanuel/open-stage-control --depth 1
