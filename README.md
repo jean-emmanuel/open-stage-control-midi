@@ -1,6 +1,5 @@
 ## open-stage-control-midi
 
-*This is an experimental feature*
 
 The requirements for enabling MIDI support in Open Stage Control can hard to install, especially under Windows. This is an attempt to provide ready-to-use binaries that Open Stage Control can use without needing any thing else installed.
 
