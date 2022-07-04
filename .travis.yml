@@ -3,7 +3,7 @@ matrix:
   - os: linux
     arch: x64
     language: python
-    python: 3.7
+    python: 3.8
     before_install:
       - sudo apt-get update
       - sudo apt-get install -y python3-dev libjack-jackd2-dev libasound2-dev
