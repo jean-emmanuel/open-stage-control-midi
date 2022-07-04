@@ -10,6 +10,7 @@ matrix:
     before_deploy:
       - mv dist/midi dist/osc-midi-linux
   - os: osx
+    osx_image: xcode7.3	
     language: minimal
     before_install:
 #      - brew install python # already installed
