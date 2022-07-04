@@ -13,7 +13,7 @@ matrix:
     osx_image: xcode8
     language: minimal
     before_install:
-      - brew install python
+      - brew doctor && brew update && brew upgrade && brew install python
       - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       - python3 get-pip.py
     before_deploy:
